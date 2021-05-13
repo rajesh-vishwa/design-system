@@ -1,0 +1,87 @@
+@import '@bge/styles/dist/index.scss';
+
+.bgeButton {
+    text-transform: none;
+    box-shadow: none;
+    font-size: 1rem;
+
+    &.containedPrimary {
+        background-color: $color-primary;
+        color: $color-white;
+        font-weight: $font-weight-bold;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        &:active {
+            background: $color-primary-dark;
+            box-shadow: none;
+        }
+
+    }
+
+    &.outlinedPrimary {
+        border: 2px solid $color-primary;
+
+        &:hover {
+            background-color: $color-white;
+        }
+        
+        &:active {
+            background-color: $color-white;
+            color: $color-primary-dark;
+            border-color: $color-primary-dark;
+        }
+
+        &:disabled {
+            border-color: $dark-grey;
+        }
+    }
+
+    &.outlinedSecondary {
+        border: 2px solid $color-white;
+        color: $color-white;
+        background-color: $color-primary;
+
+        &:hover {
+            background-color: $color-primary;
+        }
+        
+        &:active {
+            color:$color-white;
+            border-color: $color-primary-dark;
+        }
+
+        &:disabled {
+            border-color: $dark-grey;
+        }
+    }
+        
+    &.disabled {
+        background-color: $light-grey;
+        color: $dark-grey; 
+    }
+
+    &.secondaryTiny {
+        background-color: blue;
+        border: solid 1px blue;
+        color: $dark-grey; 
+    }
+
+    &.tertiary {
+        background-color: red;
+        border: solid 1px red;
+        color: $dark-grey; 
+    }
+
+    &.controlText {
+        padding: 5px !important;
+        border: solid 1px yellow !important;
+    }
+}
+
+.bgelabel{ 
+    text-transform: none;
+}
+
