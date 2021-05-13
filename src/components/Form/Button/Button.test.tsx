@@ -1,14 +1,15 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import React from "react";
+import { render, screen } from "@testing-library/react";
 
-import  Button, { testId } from './Button';
+import Button, { testId } from "./Button";
 
-describe('Button', () => {
-  test('should render without crashing', () => {
-    //render( <Button text="abc" />);
+describe("Button", () => {
+  test("should render without crashing", () => {
+    render(<Button text="abc" />);
+    //screen.debug();
+    const component = screen.getByTestId(testId);
+    //console.log(component);
 
-    // const component = screen.getByTestId(testId);
-//    const x = 10;
-  //  expect(x).toBe(10);
+    expect(component).toBeDefined();
   });
 });
