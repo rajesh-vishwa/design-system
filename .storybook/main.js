@@ -1,3 +1,4 @@
+const path = require("path");
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
@@ -11,9 +12,10 @@ module.exports = {
       test: /\.scss$/,
       use: [
         { loader: "style-loader" },
-        { loader: "css-loader" },
+        { loader: "css-loader?modules=true" },
         { loader: "sass-loader" },
       ],
+      include: path.resolve(__dirname, "../"),
     });
 
     // Return the altered config
