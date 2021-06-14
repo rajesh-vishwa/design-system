@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { StylesProvider } from "@material-ui/core/styles";
 import { ErrorIcon } from "../../Icons";
@@ -12,13 +12,17 @@ export interface IInputProps {
   type: "text" | "email" | "password";
   helperText?: string;
   disabled?: boolean;
+
   width?: number | "fullWidth" | "auto";
 }
 const Input: React.FC<IInputProps> = (props: IInputProps) => {
   // const [field, meta, helpers] = useField<string>(props);
 
+  const [isTouched, setIsTouched] = useState<boolean>(false);
+  const [isValid, setIsValid] = useState<boolean>(false);
+
   // check validation
-  const errorMessage = ""; //meta.error && meta.touched ? meta.error : "";
+  const errorMessage = !isValid && isTouched && "Field can not be blank";
   let icon = null;
   if (errorMessage) icon = <ErrorIcon />;
 
@@ -37,6 +41,8 @@ const Input: React.FC<IInputProps> = (props: IInputProps) => {
       <TextField
         // {...field}
         {...props}
+        onBlur={() => setIsTouched(true)}
+        onChange={(e) => setIsValid(e.target.value !== "")}
         variant="filled"
         margin="dense"
         fullWidth={!!fullWidth}

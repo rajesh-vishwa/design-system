@@ -1,8 +1,37 @@
+//@import "@bge/styles/dist/index.scss";
+
 .formControl {
   min-width: 150px;
-  margin: 5px;
+  margin: 8px;
+
+  label {
+    transform: translate(12px, 5px) scale(0.75) !important;
+  }
+}
+
+.OutlinedInput {
+  //height: 56px;
+}
+
+.selectMenu {
+  border-radius: 50%;
+
+  &:active,
+  &:focus {
+    border: solid 1px green; // $color-primary;
+  }
+}
+
+.select {
+  border-radius: 10%;
+  border: solid 1px maroon;
+
+  &:active,
+  &:focus {
+    border: solid 1px red; //$color-primary;
+  }
 }
 
 .selectEmpty {
-  margin-top: 2px;
+  margin-top: 5px;
 }

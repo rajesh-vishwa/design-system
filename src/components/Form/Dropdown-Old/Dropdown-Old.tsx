@@ -5,11 +5,9 @@ import {
   FormHelperText,
   InputLabel,
   MenuItem,
-  OutlinedInput,
   StylesProvider,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import styles from "./Dropdown.module.scss";
+import styles from "./Dropdown-Old.module.scss";
 // import { ErrorIcon } from "src";
 
 export const testId = "dropdownTestId";
@@ -22,11 +20,10 @@ export interface IDropdownProps {
   disabled?: boolean;
   isRequired?: boolean;
   items: { value: string | number; text: string }[];
-  onChange?: (value: unknown) => void;
-  ariaLabel?: string;
+  onChnage?: (value: unknown) => {};
 }
 
-const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
+const DropdownOld: React.FC<IDropdownProps> = (props: IDropdownProps) => {
   const {
     id,
     selectedValue,
@@ -34,17 +31,17 @@ const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
     helperText,
     disabled,
     items,
-    onChange,
+    onChnage,
     isRequired = false,
-    ariaLabel,
   } = props;
 
   const [isTouched, setIsTouched] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(false);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    event.preventDefault();
     setIsValid(!!event.target.value);
-    onChange && onChange(event.target.value as string);
+    onChnage && onChnage(event.target.value as string);
   };
 
   // check validation
@@ -53,7 +50,7 @@ const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
   return (
     <StylesProvider injectFirst>
       <FormControl
-        variant="outlined"
+        variant="filled"
         className={styles.formControl}
         disabled={disabled}
         data-testid={testId}
@@ -62,22 +59,13 @@ const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
         <InputLabel id={id}>{label}</InputLabel>
         <Select
           labelId={id}
-          id={`select-${id}`}
+          id={id}
           value={selectedValue}
           onChange={handleChange}
-          // label={label}
-          classes={{
-            root: styles.OutlinedInput,
-            select: styles.select,
-            selectMenu: styles.selectMenu,
-          }}
-          //variant="outlined"
+          className={styles.selectEmpty}
+          variant="outlined"
           error={!!errorMessage}
-          IconComponent={ExpandMoreIcon}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {items.map((item) => (
             <MenuItem value={item.value}>{item.text}</MenuItem>
           ))}
@@ -90,4 +78,4 @@ const Dropdown: React.FC<IDropdownProps> = (props: IDropdownProps) => {
   );
 };
 
-export default Dropdown;
+export default DropdownOld;

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import Dropdown, { testId } from "./Dropdown";
+import DropdownOld, { testId } from "./Dropdown-Old";
 
 const items = [
   { value: 10, text: "Option A" },
@@ -18,7 +18,7 @@ const defaultArgs = {
 
 describe("Dropdown", () => {
   test("should render without crashing", () => {
-    render(<Dropdown {...defaultArgs} />);
+    render(<DropdownOld {...defaultArgs} />);
 
     const component = screen.getByTestId(testId);
 

@@ -1,55 +1,52 @@
-@import '@bge/styles/dist/index.scss';
+// @import '@bge/styles/dist/index.scss';
 
-.bgeTextfield{
-    font:inherit;
-    font-size:17px;
-    //color: $color-text;
-    border-radius:8px;
-    box-sizing: border-box; 
-    //background: $background; 
-    //border:1px solid $gray;
-    
+.bgeTextfield {
+  font: inherit;
+  font-size: 17px;
+  //color: $color-text;
+  border-radius: 8px;
+  box-sizing: border-box;
+  //background: $background;
+  //border:1px solid $gray;
 
-    &:hover {
-        background:inherit;
-    }
-    &.bgeTextfieldDisabled{
-       // background: $lightgrey;
-    }
+  &:hover {
+    background: inherit;
+  }
+  &.bgeTextfieldDisabled {
+    // background: $lightgrey;
+  }
 
-    &.bgeTextfieldFocused{
-        background:inherit;
-       // border:1px solid $primary;
-    }
+  &.bgeTextfieldFocused {
+    background: inherit;
+    // border:1px solid $primary;
+  }
 
-    &.bgeTextfieldError{
-        background:inherit;
-        //border:1px solid $error;
-    }
-    
+  &.bgeTextfieldError {
+    background: inherit;
+    //border:1px solid $error;
+  }
 }
 
-
 .bgeTextfieldLabel {
-   // color: $darkgrey;
-    &.bgeTextfieldLabelDisabled{
-     //   color: $darkgrey;
-    }
+  // color: $darkgrey;
+  &.bgeTextfieldLabelDisabled {
+    //   color: $darkgrey;
+  }
 
-    &.bgeTextfieldLabelFocused {
-     //   color:$primary;
-    }
-    
-    &.bgeTextfieldLabelError {
-      //  color: $darkgrey;
-    }
+  &.bgeTextfieldLabelFocused {
+    //   color:$primary;
+  }
+
+  &.bgeTextfieldLabelError {
+    //  color: $darkgrey;
+  }
 }
 
 .bgeTextfieldHelper {
-   // color: $darkgrey;
-    margin-left:0px;
+  // color: $darkgrey;
+  margin-left: 0px;
 
-    &.bgeTextfieldHelperError {
-        //color: $error;
-    }
+  &.bgeTextfieldHelperError {
+    //color: $error;
+  }
 }

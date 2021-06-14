@@ -1,11 +1,11 @@
 import React from "react";
-import Dropdown, { IDropdownProps } from "./Dropdown";
+import DropdownOld, { IDropdownProps } from "./Dropdown-Old";
 import { Meta, Story } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
 export default {
-  component: Dropdown,
-  title: "Form Components/Dropdown",
+  component: DropdownOld,
+  title: "DropdownOld",
 } as Meta;
 
 const items = [
@@ -16,15 +16,14 @@ const items = [
 ];
 
 const defaultArgs = {
-  id: "Dropdown",
-  label: "Please select",
+  label: "default label",
   items: [],
   selectedValue: "",
   disabled: false,
-  ariaLabel: "Dropdown",
+
   onChange: action("on change"),
 };
-const Template: Story<IDropdownProps> = (args) => <Dropdown {...args} />;
+const Template: Story<IDropdownProps> = (args) => <DropdownOld {...args} />;
 
 export const WithoutContent = Template.bind({});
 WithoutContent.args = { ...defaultArgs };
